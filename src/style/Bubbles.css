@@ -1,14 +1,21 @@
 :root {
-  --bg1: #0f172a;
-  --bg2: #071427;
+  --bg1: #2C465F;
+  --bg2: #5E6390;
+  --bubble-border: #bed5e291;
+  --bubble-bg: linear-gradient(135deg, #9ccefde0,  #725bda);
+  --body-bg: linear-gradient(135deg, var(--bg1), var(--bg2));
+  --text-color-100:#ffffff;
+  --text-color-200:#f3edeb;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  background-image: url('C:\Users\Mon PC\Documents\bubbles-jwork\public\bg-water.webp');
+  background-size: cover;
   overflow: hidden;
   font-family: system-ui, Roboto, sans-serif;
+  cursor: pointer;
 }
 
 .stage {
@@ -26,12 +33,12 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  color: #fff;
+  color: var(--text-color-100);
   font-weight: 600;
   text-align: center;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background: var(--bubble-bg);
+  border: 1px solid var(--bubble-border);
+  box-shadow: 0 12px 10px rgba(0, 0, 0, 0.5);
   animation: float 6s ease-in-out infinite;
 }
 
