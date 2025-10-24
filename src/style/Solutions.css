@@ -1,0 +1,99 @@
+/* Full page container */
+.solutions-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* full viewport height */
+  font-family: Arial, sans-serif;
+}
+
+/* Fixed header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #0b132b;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Header title spacing */
+.header-title {
+  margin-left: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Fixed footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #1c2541;
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Scrollable cards container */
+.cards-container {
+  flex: 1; /* take remaining space */
+  margin-top: 80px;  /* equal to header height */
+  margin-bottom: 60px; /* equal to footer height */
+  padding: 20px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  background: #0b132b;
+}
+
+/* Card styles */
+.card {
+  background: #1c2541;
+  border-radius: 12px;
+  padding: 15px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.card-subtitle {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.card-description {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: #00ffc6;
+  color: #0b132b;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+}

@@ -1,0 +1,23 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.favicon {
+  width: 25px; /* smaller logo */
+  height: 30px;
+  margin-right: 8px;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1235d4; /* your primary color */
+}
+
+.logo-highlight {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f77c18; /* your secondary color */
+}
