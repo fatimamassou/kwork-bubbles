@@ -1,17 +1,31 @@
 :root {
-  --bg1: #3b5772;
-  --bg2: #7d83b8;
-  --bubble-border: #bed5e291;
-  --bubble-bg: linear-gradient(135deg, #9ccefde0, #725bda);
-  --body-bg: linear-gradient(135deg, var(--bg1), var(--bg2));
-  --text-color-100: #ffffff;
-  --text-color-200: #f3edeb;
+  --bg1: #12395e;
+  --bg2: #e5e6f7;
+  --bg3: #b4b6d1;
+  --body-bg2:#112b46 ;
+  --bubble-border:  #ebe7ff8a;
+
+  /* 💡 Different bubble colors */
+  --bubble1: linear-gradient(135deg, #5da7db7a, #2a71b486);
+  --bubble2: linear-gradient(135deg, #e4a97273, #994e4e80);
+  --bubble3: linear-gradient(135deg, #97eb367e, #3e885c79);
+  --bubble4: linear-gradient(135deg, #d47eea79, #5a5ff87e);
+  --bubble5: linear-gradient(135deg, #ffd3a57c, #fd65867a);
+  --bubble6: linear-gradient(135deg, #be28cc7c, #1782b377);
+  --bubble7: linear-gradient(135deg, #ff6f4771, #ff5eff71);
+  --bubble8: linear-gradient(135deg, #f59ebb71, #14d1cb71);
+
+  --bubble-bg: linear-gradient(150deg, var(--bg2), var(--bg1));
+  --body-bg: linear-gradient(90deg, var(--bg1), var(--bg2));
+  --text-color-100: #f3f3f3;
+  --text-color-200: #ffffff;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-image: url('C:\\Users\\Mon PC\\Documents\\bubbles-jwork\\public\\bg-water.webp');
+  /* background-image: url('C:\\Users\\Mon PC\\Documents\\bubbles-jwork\\public\\bg-water.webp'); */
+  background: var(--body-bg2);
   background-size: cover;
   background-position: center;
   font-family: system-ui, Roboto, sans-serif;
@@ -29,7 +43,7 @@ body {
 .header {
   flex-shrink: 0;
   height: 70px;
-  background: var(--body-bg);
+  background: var(--bg1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,15 +56,43 @@ body {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 20px;
+}
+
 .logo {
   width: 40px;
   height: 40px;
   margin-right: 10px;
+  animation: sway 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes sway {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(10deg); }
+  50%  { transform: rotate(-10deg); }
+  75%  { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+
+.logo:hover {
+  animation: bounceOnce 0.8s ease;
+}
+
+@keyframes bounceOnce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(8deg); }
 }
 
 .company-name {
   font-size: 1.4rem;
   font-weight: 600;
+  color:var(--text-color-100);
 }
 
 /* MAIN */
@@ -59,7 +101,7 @@ body {
   position: relative;
   overflow: hidden;
   margin-top: 70px;
-  margin-bottom: 50px; /* Adjusted for smaller footer height */
+  margin-bottom: 50px;
   height: calc(100vh - 120px);
   z-index: 1;
   cursor: pointer;
@@ -74,17 +116,53 @@ body {
 /* Bubbles */
 .bubble {
   position: absolute;
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   color: var(--text-color-100);
-  font-weight: 600;
+  font-weight: 500;
+  font-size: larger;
   text-align: center;
-  background: var(--bubble-bg);
-  border: 1px solid var(--bubble-border);
   box-shadow: 0 12px 10px rgba(0, 0, 0, 0.5);
-  animation: float 6s ease-in-out infinite;
+  animation-name: float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease-in-out;
+}
+
+.bubble:hover {
+  transform: scale(1.15) translateY(-5px);
+  filter: brightness(1.2);
+  box-shadow: 0 10px 25px #3a3d3f;
+  cursor: pointer;
+}
+
+.solutions {
+  font-weight: 600;
+  color:var(--text-color-100  );
+  text-shadow: 0 0 8px rgba(151, 151, 151, 0.7);
+  letter-spacing: 1px;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(5px, -10px);
+  }
+  50% {
+    transform: translate(-5px, -15px);
+  }
+  75% {
+    transform: translate(5px, -10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 .footer {
@@ -93,9 +171,8 @@ body {
   left: 0;
   width: 100%;
   max-height: 80px;
-  height: 60px;
-  background: linear-gradient(135deg, var(--bg2), var(--bg1));
-  color: var(--text-color-100);
+  background: var(--bg1);
+  color: var(--text-color-200);
   text-align: center;
   padding-bottom: 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -158,3 +235,4 @@ body {
     transform: translateY(-15px);
   }
 }
+
