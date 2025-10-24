@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "../style/Bubbles.css";
-import cardData from "../data/cardData"; // adjust the path if needed
+import cardData from "../data/cardData";
 
 function Bubbles() {
   const stageRef = useRef(null);
@@ -9,7 +9,6 @@ function Bubbles() {
     const stage = stageRef.current;
     stage.innerHTML = ""; // clear previous bubbles
 
-    // extract only titles
     const texts = cardData.map(card => card.title);
 
     const random = (min, max) => Math.random() * (max - min) + min;
@@ -34,7 +33,10 @@ function Bubbles() {
       bubble.className = "bubble";
       bubble.textContent = t;
 
-      const size = random(70, 140);
+      // size depends on text length
+      const minSize = 70;
+      const maxSize = 160;
+      const size = Math.min(maxSize, Math.max(minSize, t.length * 8 + 40));
       bubble.style.width = `${size}px`;
       bubble.style.height = `${size}px`;
 
