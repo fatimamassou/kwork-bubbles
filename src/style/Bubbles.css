@@ -7,7 +7,7 @@
 
   /* 💡 Different bubble colors */
   --bubble1: linear-gradient(135deg, #5da7db7a, #2a71b486);
-  --bubble2: linear-gradient(135deg, #e4a97273, #994e4e80);
+  --bubble2: linear-gradient(135deg, #ebbd9273, #701b1b91);
   --bubble3: linear-gradient(135deg, #97eb367e, #3e885c79);
   --bubble4: linear-gradient(135deg, #d47eea79, #5a5ff87e);
   --bubble5: linear-gradient(135deg, #ffd3a57c, #fd65867a);
@@ -154,13 +154,13 @@ body {
     transform: translate(0, 0);
   }
   25% {
-    transform: translate(5px, -10px);
+    transform: translate(15px, -20px);
   }
   50% {
-    transform: translate(-5px, -15px);
+    transform: translate(-15px, -20px);
   }
   75% {
-    transform: translate(5px, -10px);
+    transform: translate(15px, -20px);
   }
   100% {
     transform: translate(0, 0);
