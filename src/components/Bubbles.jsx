@@ -9,89 +9,80 @@ function BubblesPage() {
   const stageRef = useRef(null);
 
   useEffect(() => {
-    const stage = stageRef.current;
-    if (!stage) return;
+  const stage = stageRef.current;
+  if (!stage) return;
 
-    const texts = cardData.map((card) => card.title);
-    const random = (min, max) => Math.random() * (max - min) + min;
+  const texts = cardData.map((card) => card.title);
+  const rect = stage.getBoundingClientRect();
+  const width = rect.width;
+  const height = rect.height;
 
-    // Collision detection
-    const collides = (x, y, size, others) => {
-      for (const o of others) {
-        const dx = x - o.x;
-        const dy = y - o.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < size / 2 + o.size / 2 + 30) return true; // 30px spacing
-      }
-      return false;
-    };
+  // grid settings
+  const cols = 8; // how many bubbles per row
+  const rows = Math.ceil(texts.length / cols);
+  const cellWidth = width / cols;
+  const cellHeight = height / rows;
 
-    const rect = stage.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-
-    // Calculate bubble positions only once (first render)
-    if (bubblePositions.length === 0) {
-      const placed = [];
-
-      texts.forEach((t) => {
-        const minSize = 80;
-        const maxSize = 160;
-        const size = Math.min(maxSize, Math.max(minSize, t.length * 8 + 40));
-
-        let x, y, tries = 0;
-        const maxTries = 3000;
-
-        // try to place without touching others
-        do {
-          x = random(size / 2, width - size / 2);
-          y = random(size / 2, height - size / 2);
-          tries++;
-          if (tries > maxTries) break;
-        } while (collides(x, y, size, placed));
-
-        placed.push({ x, y, size });
-      });
-
-      bubblePositions = placed; // Save fixed positions
-    }
-
-    // Create the bubbles dynamically
-    stage.innerHTML = ""; // clear before adding
+  if (bubblePositions.length === 0) {
+    const placed = [];
 
     texts.forEach((t, i) => {
-      const { x, y, size } = bubblePositions[i];
-      const bubble = document.createElement("div");
-      bubble.className = "bubble";
-      bubble.textContent = t;
+      const col = i % cols;
+      const row = Math.floor(i / cols);
 
-      const bgList = [
-        "var(--bubble1)", "var(--bubble2)", "var(--bubble3)",
-        "var(--bubble4)", "var(--bubble5)", "var(--bubble6)",
-        "var(--bubble7)", "var(--bubble8)"
-      ];
-      const randomBg = bgList[Math.floor(Math.random() * bgList.length)];
+      const minSize = 80;
+      const maxSize = 160;
+      const size = Math.min(maxSize, Math.max(minSize, t.length * 8 + 40));
 
-      bubble.style.background = randomBg;
-      bubble.style.width = `${size}px`;
-      bubble.style.height = `${size}px`;
-      bubble.style.left = `${x - size / 2}px`;
-      bubble.style.top = `${y - size / 2}px`;
+      // base position
+      let x = col * cellWidth + cellWidth / 2;
+      let y = row * cellHeight + cellHeight / 2;
 
-      // Floating animation
-      const dur = random(5, 10);
-      const delay = random(0, 2);
-      bubble.style.animationDuration = `${dur}s`;
-      bubble.style.animationDelay = `${delay}s`;
+      // add some random "organic" offset so it doesn't look too grid-like
+      const jitterX = (Math.random() - 0.5) * cellWidth * 0.4;
+      const jitterY = (Math.random() - 0.5) * cellHeight * 0.4;
 
-      // Add click to go to details
-      bubble.addEventListener("click", () => {
-        window.location.href = `/details/${cardData[i].id}`;
-      });
+      x += jitterX;
+      y += jitterY;
 
-      stage.appendChild(bubble);
+      placed.push({ x, y, size });
     });
-  }, []);
+
+    bubblePositions = placed;
+  }
+
+  // render bubbles
+  stage.innerHTML = "";
+
+  texts.forEach((t, i) => {
+    const { x, y, size } = bubblePositions[i];
+    const bubble = document.createElement("div");
+    bubble.className = "bubble";
+    bubble.textContent = t;
+
+    const bgList = [
+      "var(--bubble1)", "var(--bubble2)", "var(--bubble3)",
+      "var(--bubble4)", "var(--bubble5)", "var(--bubble6)",
+      "var(--bubble7)", "var(--bubble8)"
+    ];
+    const randomBg = bgList[Math.floor(Math.random() * bgList.length)];
+
+    bubble.style.background = randomBg;
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+    bubble.style.left = `${x - size / 2}px`;
+    bubble.style.top = `${y - size / 2}px`;
+
+    const dur = 6 + Math.random() * 4;
+    bubble.style.animationDuration = `${dur}s`;
+
+    bubble.addEventListener("click", () => {
+      window.location.href = `/details/${cardData[i].id}`;
+    });
+
+    stage.appendChild(bubble);
+  });
+}, []);
 
   return (
       <main className="bubbles-container" ref={stageRef}></main>
