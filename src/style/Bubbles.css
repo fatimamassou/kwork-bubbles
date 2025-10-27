@@ -24,11 +24,10 @@
 body {
   margin: 0;
   padding: 0;
-  /* background: var(--body-bg2); */
   background-image: url("/public/space-bg.jpg");
   background-size: cover;
   background-position: center;
-  font-family: system-ui, Roboto, sans-serif;
+  font-family: "Sakkal Majalla V1";
   overflow-x: hidden;
 }
 
@@ -120,14 +119,12 @@ body {
 
 /* Bubbles */
 .bubble {
-  position: absolute;
-  padding: 10px;
+  position: absolute; 
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   color: var(--text-color-100);
-  font-weight: 500;
   font-size: larger;
   text-align: center;
   box-shadow: 0 12px 10px rgba(0, 0, 0, 0.5);
