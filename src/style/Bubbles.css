@@ -1,13 +1,13 @@
 :root {
-  --bg1: #12395e;
-  --bg2: #e5e6f7;
+  --bg1: #275886ab;
+  --bg2: #ffffffab;
   --bg3: #b4b6d1;
   --body-bg2:#112b46 ;
   --bubble-border:  #ebe7ff8a;
 
   /* 💡 Different bubble colors */
   --bubble1: linear-gradient(135deg, #5da7db7a, #2a71b486);
-  --bubble2: linear-gradient(135deg, #ebbd9273, #701b1b91);
+  --bubble2: linear-gradient(135deg, #ebbd9273, #b90f0f91);
   --bubble3: linear-gradient(135deg, #97eb367e, #3e885c79);
   --bubble4: linear-gradient(135deg, #d47eea79, #5a5ff87e);
   --bubble5: linear-gradient(135deg, #ffd3a57c, #fd65867a);
@@ -17,15 +17,15 @@
 
   --bubble-bg: linear-gradient(150deg, var(--bg2), var(--bg1));
   --body-bg: linear-gradient(90deg, var(--bg1), var(--bg2));
-  --text-color-100: #f3f3f3;
+  --text-color-100: #ffffff;
   --text-color-200: #ffffff;
 }
 
 body {
   margin: 0;
   padding: 0;
-  /* background-image: url('C:\\Users\\Mon PC\\Documents\\bubbles-jwork\\public\\bg-water.webp'); */
-  background: var(--body-bg2);
+  /* background: var(--body-bg2); */
+  background-image: url("/public/space-bg.jpg");
   background-size: cover;
   background-position: center;
   font-family: system-ui, Roboto, sans-serif;
@@ -66,7 +66,10 @@ body {
 .logo {
   width: 40px;
   height: 40px;
+  background-color: rgb(118, 124, 150);
+  border-radius: 50%;
   margin-right: 10px;
+  box-shadow: 0 5px 10px rgba(255, 255, 255, 0.774);
   animation: sway 3s ease-in-out infinite;
   transform-origin: center;
   cursor: pointer;
@@ -228,7 +231,6 @@ body {
   }
 }
 
-
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -238,3 +240,51 @@ body {
   }
 }
 
+.details-content {
+  width:90%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-content-card {
+  background: var(--bg2);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #112b46;
+}
+
+.details-content-card h2{
+  opacity: 0.9;
+}
+
+.title-section h1{
+  margin: 0;
+}
+
+.title-section h2{
+  margin-top: 0;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.tags p {
+  border: 1px solid #112b46;
+  padding: 5px 10px;
+  border-radius: 50px;
+  color: #112b46;
+}
+
+.tags p:hover {
+  background-color: #112b46;
+  color: #ffffff;
+  cursor: pointer;
+}
