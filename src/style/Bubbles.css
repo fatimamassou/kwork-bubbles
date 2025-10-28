@@ -255,9 +255,26 @@ body {
   line-height: 1;
 }
 
+@media (max-width: 2240px) {
+  .company-name {
+    font-size: 2.4rem;
+    font-weight: 400;
+  }
+
+  .solutions {
+    font-size: 2.4rem;
+    font-weight: 500;
+  }
+
+  .bubble {
+    padding: 2px;
+  }
+
+}
+
 @media (max-width: 1224px) {
   .company-name {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
 
   .bubble {
@@ -269,9 +286,6 @@ body {
     gap: 4px;
   }
 
-  .company-name {
-    font-size: 1.6rem;
-  }
 }
 
 /* Tablets (≤1024px) */
@@ -281,7 +295,7 @@ body {
   }
 
   .bubble {
-    padding: 10px;
+    padding: 6px;
   }
 
   .footer-content {
