@@ -17,20 +17,35 @@ function BubblesPage() {
       maxSize = 90;
       fontSize = "0.7rem";
     } else if (width <= 768) {
-      cols = 3;
-      minSize = 80;
-      maxSize = 120;
-      fontSize = "0.9rem";
-    } else if (width <= 1279) {
       cols = 6;
-      minSize = 100;
-      maxSize = 150;
-      fontSize = "1rem";
+      minSize = 50;
+      maxSize = 90;
+      fontSize = "0.98rem";
+    } else if (width <= 1279) {
+      cols = 5;
+      minSize = 90;
+      maxSize = 140;
+      fontSize = "1.5rem";
+    } else if (width <= 1580) {
+      cols = 6;
+      minSize = 180;
+      maxSize = 250;
+      fontSize = "1.8rem";
+    } else if (width <= 2180) {
+      cols = 5;
+      minSize = 310;
+      maxSize = 400;
+      fontSize = "2.8rem";
+    } else if (width <= 2899) {
+      cols = 6;
+      minSize = 390;
+      maxSize = 460;
+      fontSize = "3.5rem";
     } else {
-      cols = 8;
-      minSize = 130;
-      maxSize = 180;
-      fontSize = "1.3rem";
+      cols = 7;
+      minSize = 290;
+      maxSize = 390;
+      fontSize = "2.9rem";
     }
 
     return { cols, minSize, maxSize, fontSize };
@@ -55,7 +70,7 @@ function BubblesPage() {
       const col = i % cols;
       const row = Math.floor(i / cols);
 
-      const size = Math.min(maxSize, Math.max(minSize, t.length * 8 + 40));
+      const size = Math.min(maxSize, Math.max(minSize, t.length * 7 ));
 
       let x = col * cellWidth + cellWidth / 2;
       let y = row * cellHeight + cellHeight / 2;
