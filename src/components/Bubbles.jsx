@@ -18,7 +18,7 @@ function BubblesPage() {
   const height = rect.height;
 
   // grid settings
-  const cols = 8; // how many bubbles per row
+  const cols = 6; // how many bubbles per row
   const rows = Math.ceil(texts.length / cols);
   const cellWidth = width / cols;
   const cellHeight = height / rows;
