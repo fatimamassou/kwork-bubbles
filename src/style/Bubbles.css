@@ -203,7 +203,7 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  max-height: 80px;
+  max-height: 90px;
   background: var(--bg1);
   text-align: center;
   padding-bottom: 10px;
@@ -231,7 +231,6 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 2px;
-  font-size: 0.85rem;
 }
 
 .contact-info p {
@@ -250,10 +249,29 @@ body {
 }
 
 .copyright {
-  font-size: 0.75rem;
+  font-size: 1.1rem;
   opacity: 0.8;
-  margin: 0;
+  margin-bottom: 2px;
   line-height: 1;
+}
+
+@media (max-width: 1224px) {
+  .company-name {
+    font-size: 1.3rem;
+  }
+
+  .bubble {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+
+  .footer-content {
+    gap: 4px;
+  }
+
+  .company-name {
+    font-size: 1.6rem;
+  }
 }
 
 /* Tablets (≤1024px) */
@@ -263,12 +281,15 @@ body {
   }
 
   .bubble {
-    font-size: 1rem;
     padding: 10px;
   }
 
   .footer-content {
     gap: 4px;
+  }
+
+  .company-name {
+    font-size: 1.6rem;
   }
 }
 
@@ -278,21 +299,30 @@ body {
     height: 60px;
   }
 
+  .header-left{
+    left: 8px;
+  }
+
+  .header-right {
+    display: flex;
+    position: absolute;
+    right: 44px;
+  }
+  .solutions {
+    font-size: 1.5rem;
+  }
   .logo {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
   }
 
   .company-name {
-    font-size: 1.2rem;
-  }
-
-  .solutions {
-    font-size: 0.9rem;
+    font-size: 1.5rem;
   }
 
   .bubbles-container {
-    height: calc(100vh - 110px);
+    height: calc(100vh - 150px);
+    margin-top: 65px;
   }
 
   .bubble {
@@ -320,16 +350,20 @@ body {
   .separator {
     display: none;
   }
+
+  .copyright{
+    font-size: 0.7rem;
+  }
 }
 
 /* Small phones (≤480px) */
 @media (max-width: 480px) {
   .company-name {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .solutions {
-    display: none;
+    display: block;
   }
 
   .bubble {
