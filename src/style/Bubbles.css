@@ -66,10 +66,10 @@ body {
 .logo {
   width: 40px;
   height: 40px;
-  background-color: rgb(118, 124, 150);
+  background-color: rgba(183, 184, 187, 0.774);
   border-radius: 50%;
   margin-right: 10px;
-  box-shadow: 0 5px 10px rgba(255, 255, 255, 0.64);
+  box-shadow: 0 6px 8px rgba(20, 20, 20, 0.9);
   animation: sway 3s ease-in-out infinite;
   transform-origin: center;
   cursor: pointer;
@@ -136,7 +136,6 @@ body {
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
   animation: float 4s ease-in-out infinite;
   transition: transform 0.3s ease-in-out;
-  padding: 10px;
 }
 
 .bubble:hover {
@@ -231,7 +230,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 2px;
   font-size: 0.85rem;
 }
 
@@ -257,8 +256,6 @@ body {
   line-height: 1;
 }
 
-/* 📱📲 RESPONSIVE DESIGN */
-
 /* Tablets (≤1024px) */
 @media (max-width: 1024px) {
   .company-name {
@@ -267,6 +264,7 @@ body {
 
   .bubble {
     font-size: 1rem;
+    padding: 10px;
   }
 
   .footer-content {
@@ -335,8 +333,7 @@ body {
   }
 
   .bubble {
-    font-size: 0.75rem;
-    padding: 4px;
+    font-size: 0.75rem; 
   }
 
   .details-content-card h2 {
@@ -350,6 +347,31 @@ body {
 
   .footer-content {
     font-size: 0.75rem;
+  }
+
+  .contact-info {
+    font-size: 0.6rem;
+    display: flex;
+  }
+
+  .contact-info p {
+    margin: 2px;
+  }
+
+  .copyright {
+    font-size: 0.5rem;
+    margin: 4px;
+  }
+
+  .bubbles-container {
+    flex: 1;
+    position: relative;
+    overflow: scroll;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    height: calc(100vh - 140px);
+    z-index: 1;
+    cursor: pointer;
   }
 
 
