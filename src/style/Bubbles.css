@@ -7,7 +7,7 @@
 
   /* 💡 Different bubble colors */
   --bubble1: linear-gradient(135deg, #5da7db7a, #2a71b486);
-  --bubble2: linear-gradient(135deg, #ebbd9273, #b90f0f91);
+  --bubble2: linear-gradient(135deg, #dfba9873, #e7525291);
   --bubble3: linear-gradient(135deg, #97eb367e, #3e885c79);
   --bubble4: linear-gradient(135deg, #d47eea79, #5a5ff87e);
   --bubble5: linear-gradient(135deg, #ffd3a57c, #fd65867a);
@@ -136,6 +136,7 @@ body {
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
   animation: float 4s ease-in-out infinite;
   transition: transform 0.3s ease-in-out;
+  padding: 10px;
 }
 
 .bubble:hover {
@@ -237,7 +238,7 @@ body {
 .contact-info p {
   box-shadow: #0f1113 0px 6px 10px;
   padding: 2px 6px;
-  color: rgb(255, 150, 64);
+  color: var(--text-color-100);
 }
 
 .company-name-highlight {
