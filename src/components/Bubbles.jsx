@@ -11,41 +11,56 @@ function BubblesPage() {
     const width = window.innerWidth;
     let cols, minSize, maxSize, fontSize;
 
-    if (width <= 480) {
-      cols = 2;
-      minSize = 60;
-      maxSize = 90;
+    if (width <= 460) {
+      cols = 4;
+      minSize = 10;
+      maxSize = 80;
+      fontSize = "0.7rem";
+    }else if (width <= 480) {
+      cols = 6;
+      minSize = 10;
+      maxSize = 50;
+      fontSize = "0.6rem";
+    } else if (width <= 668) {
+      cols = 6;
+      minSize = 10;
+      maxSize = 70;
       fontSize = "0.7rem";
     } else if (width <= 768) {
       cols = 6;
-      minSize = 50;
+      minSize = 35;
       maxSize = 90;
-      fontSize = "0.98rem";
+      fontSize = "0.9rem";
     } else if (width <= 1279) {
       cols = 6;
-      minSize = 90;
+      minSize = 60;
+      maxSize = 100;
+      fontSize = "1rem";
+    } else if (width <= 1380) {
+      cols = 6;
+      minSize = 100;
       maxSize = 140;
-      fontSize = "1.5rem";
+      fontSize = "1.4rem";
     } else if (width <= 1580) {
       cols = 6;
-      minSize = 120;
+      minSize = 140;
       maxSize = 200;
-      fontSize = "1.2rem";
+      fontSize = "1.6rem";
     } else if (width <= 2180) {
       cols = 6;
-      minSize = 220;
-      maxSize = 380;
-      fontSize = "2.1rem";
+      minSize = 160;
+      maxSize = 280;
+      fontSize = "1.6rem";
     } else if (width <= 2899) {
       cols = 6;
-      minSize = 390;
-      maxSize = 460;
-      fontSize = "3.5rem";
+      minSize = 280;
+      maxSize = 360;
+      fontSize = "2.5rem";
     } else {
       cols = 7;
-      minSize = 290;
-      maxSize = 390;
-      fontSize = "2.9rem";
+      minSize = 380;
+      maxSize = 400;
+      fontSize = "3.2rem";
     }
 
     return { cols, minSize, maxSize, fontSize };
