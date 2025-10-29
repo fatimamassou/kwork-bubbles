@@ -11,11 +11,16 @@ function BubblesPage() {
     const width = window.innerWidth;
     let cols, minSize, maxSize, fontSize;
 
-    if (width <= 460) {
+    if (width <= 340) {
       cols = 4;
       minSize = 10;
-      maxSize = 80;
+      maxSize = 60;
       fontSize = "0.7rem";
+    }else if (width <= 460) {
+      cols = 4;
+      minSize = 10;
+      maxSize = 65;
+      fontSize = "0.8rem";
     }else if (width <= 480) {
       cols = 6;
       minSize = 10;
@@ -58,9 +63,9 @@ function BubblesPage() {
       fontSize = "2.5rem";
     } else {
       cols = 7;
-      minSize = 380;
-      maxSize = 400;
-      fontSize = "3.2rem";
+      minSize = 400;
+      maxSize = 480;
+      fontSize = "4.2rem";
     }
 
     return { cols, minSize, maxSize, fontSize };
