@@ -150,7 +150,7 @@ body {
   50% { transform: translateY(-15px); }
 }
 
-/* 🧾 DETAILS CARD */
+/* DETAILS CARD */
 .details-content {
   width: 90%;
   height: 100%;
@@ -210,7 +210,6 @@ body {
   color: var(--text-color-200);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
-  font-family: system-ui, Roboto, sans-serif;
   z-index: 10;
   display: flex;
   align-items: center;
@@ -255,6 +254,141 @@ body {
   line-height: 1;
 }
 
+@media (max-width: 8240px) {
+  .company-name {
+    font-size: 5.4rem;
+    font-weight: 400;
+  }
+
+  .header {
+    height: 180px;
+  }
+
+  .solutions {
+    font-size: 6.4rem;
+    font-weight: 500;
+  }
+
+  .logo{
+    width: 100px;
+    height: 100px;
+  }
+
+  .bubble {
+    padding: 50px;
+  }
+
+  .copyright{
+    font-size: 3.8rem;
+    margin-top: 2px;
+  }
+
+  .contact-info p{
+    font-size: 3.8rem;
+    margin: 40px;
+  }
+
+  .separator {
+    opacity: 1;
+    font-weight: 800;
+  }
+  
+  .footer {
+    max-height: 200px;
+  }
+
+}
+
+
+@media (max-width: 5240px) {
+  .company-name {
+    font-size: 4.4rem;
+    font-weight: 400;
+  }
+
+  .header {
+    height: 120px;
+  }
+
+  .solutions {
+    font-size: 4.4rem;
+    font-weight: 500;
+  }
+
+  .logo{
+    width: 60px;
+    height: 60px;
+  }
+
+  .bubble {
+    padding: 20px;
+  }
+
+  .copyright{
+    font-size: 2.5rem;
+    margin-top: 8px;
+  }
+
+  .contact-info p{
+    font-size: 3rem;
+    margin: 20px;
+  }
+
+  .separator {
+    opacity: 1;
+    font-weight: 800;
+  }
+  
+  .footer {
+    max-height: 140px;
+  }
+
+}
+
+@media (max-width: 3040px) {
+  .company-name {
+    font-size: 3.4rem;
+    font-weight: 400;
+  }
+
+  .solutions {
+    font-size: 3.4rem;
+    font-weight: 500;
+  }
+
+  .logo{
+    width: 50px;
+    height: 50px;
+  }
+
+  .bubble {
+    padding: 10px;
+  }
+
+  .copyright{
+    font-size: 1.50rem;
+    margin-top: 10px;
+  }
+
+  .contact-info p{
+    font-size: 1.9rem;
+    margin: 10px;
+  }
+
+  .separator {
+    opacity: 0.8;
+    font-weight: 600;
+  }
+
+  .header {
+    height: 60px;
+  }
+
+  .footer {
+    max-height: 90px;
+  }
+}
+
 @media (max-width: 2240px) {
   .company-name {
     font-size: 2.4rem;
@@ -266,15 +400,36 @@ body {
     font-weight: 500;
   }
 
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+  
   .bubble {
     padding: 2px;
   }
 
+  .footer {
+    max-height: 70px;
+  }
+
+  .contact-info p{
+    font-size: 1.3rem;
+    margin-right: 10px;
+  }
+
+  .copyright {
+    font-size: 1.2rem;
+  }
 }
 
-@media (max-width: 1224px) {
+@media (max-width: 1824px) {
   .company-name {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
+  }
+  
+  .copyright {
+    font-size:0.8rem;
   }
 
   .bubble {
@@ -286,6 +441,52 @@ body {
     gap: 4px;
   }
 
+  .footer {
+    max-height: 50px;
+  }
+
+  .contact-info p {
+    font-size: 1rem;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 1224px) {
+  .header {
+    height:50px;
+  }
+
+  .footer {
+    max-height:50px;
+  }
+
+  .company-name {
+    font-size: 1.8rem;
+  }
+
+  .bubble {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+
+  .footer-content {
+    gap: 4px;
+  }
+
+  .contact-info p{
+    font-size: 0.8rem;
+    margin-right: 10px;
+  }
+
+  .copyright {
+    font-size:0.8rem;
+    margin-top: 1px;
+  }
+
+  .logo {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 /* Tablets (≤1024px) */
@@ -303,7 +504,7 @@ body {
   }
 
   .company-name {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -366,7 +567,7 @@ body {
   }
 
   .copyright{
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -398,7 +599,7 @@ body {
   }
 
   .contact-info {
-    font-size: 0.6rem;
+    font-size: 0.9rem;
     display: flex;
   }
 
