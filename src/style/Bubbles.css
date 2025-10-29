@@ -254,6 +254,18 @@ body {
   line-height: 1;
 }
 
+.back-icon {
+  font-size: 30px;      
+  color: #214d75;       
+  cursor: pointer;       
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.back-icon:hover {
+  transform: scale(1.2); 
+  color: #112b46;        
+}
+
 @media (max-width: 8240px) {
   .company-name {
     font-size: 5.4rem;
