@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import cardData from "../data/cardData";
 import { IoReturnUpBackOutline } from "react-icons/io5";
+import "../style/Details.css";
 
 function DetailsPage() {
   const { id } = useParams();
@@ -12,21 +13,30 @@ function DetailsPage() {
   }
 
   return (
-    <div className="bubbles-container">
-      <main className="details-content">
+    <div className="details-content">
+      <main className="bubbles-container">
         <div className="details-content-card">
           <IoReturnUpBackOutline 
             className="back-icon" 
             onClick={() => navigate("/")} 
           />  
-          {card.image && <img src={card.image} alt={card.title} />}
-          <div className="title-section">
-            <h1>{card.title}</h1>
-          </div>
-          <p>{card.description}</p>
-          <h2>Fonctionnalités</h2>
-          <div className="tags">
-            {card.Fonctionnalités.map((f,index)=><p key={index}>{f}</p>)}
+          <div className="card">
+            <div className="img-container">
+              {card.img && <img src={card.img} alt={card.title} />}
+            </div>
+            <div className="text-container">
+              <div className="title-section">
+                <h1>{card.title}</h1>
+                <h2>{card.subtitle}</h2>
+              </div>
+              <div className="body">
+                <p>{card.description}</p>
+                <h2>Fonctionnalités</h2>
+                <div className="tags">
+                  {card.Fonctionnalités.map((f,index)=><span key={index}>{f}</span>)}
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
