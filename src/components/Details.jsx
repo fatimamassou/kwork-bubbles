@@ -22,12 +22,11 @@ function DetailsPage() {
           {card.image && <img src={card.image} alt={card.title} />}
           <div className="title-section">
             <h1>{card.title}</h1>
-            <h2>{card.subtitle}</h2>
           </div>
           <p>{card.description}</p>
+          <h2>Fonctionnalités</h2>
           <div className="tags">
-            <p>{card.tags[0]}</p>
-            <p>{card.tags[1]}</p>
+            {card.Fonctionnalités.map((f,index)=><p key={index}>{f}</p>)}
           </div>
 
         </div>
