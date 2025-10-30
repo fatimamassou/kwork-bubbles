@@ -8,39 +8,36 @@ function DetailsPage() {
   const navigate = useNavigate();
   const card = cardData.find((c) => c.id === parseInt(id));
 
-  if (!card) {
-    return <h2 className="text-center mt-10">Solution not found</h2>;
-  }
+  if (!card) return <h2 className="text-center mt-10">Solution not found</h2>;
 
   return (
     <div className="details-content">
-      <main className="bubbles-container">
-        <div className="details-content-card">
-          <IoReturnUpBackOutline 
-            className="back-icon" 
-            onClick={() => navigate("/")} 
-          />  
-          <div className="card">
-            <div className="img-container">
-              {card.img && <img src={card.img} alt={card.title} />}
+      <div className="details-content-card">
+        <IoReturnUpBackOutline
+          className="back-icon"
+          onClick={() => navigate("/")}
+        />
+        <div className="card">
+          <div className="img-container">
+            {card.img && <img src={card.img} alt={card.title} />}
+          </div>
+          <div className="text-container">
+            <div className="title-section">
+              <h1>{card.title}</h1>
+              <h2>{card.subtitle}</h2>
             </div>
-            <div className="text-container">
-              <div className="title-section">
-                <h1>{card.title}</h1>
-                <h2>{card.subtitle}</h2>
-              </div>
-              <div className="body">
-                <p>{card.description}</p>
-                <h2>Fonctionnalités</h2>
-                <div className="tags">
-                  {card.Fonctionnalités.map((f,index)=><span key={index}>{f}</span>)}
-                </div>
+            <div className="body">
+              <p>{card.description}</p>
+              <h2>Fonctionnalités</h2>
+              <div className="tags">
+                {card.Fonctionnalités.map((f, i) => (
+                  <span key={i}>{f}</span>
+                ))}
               </div>
             </div>
           </div>
-
         </div>
-      </main>
+      </div>
     </div>
   );
 }
