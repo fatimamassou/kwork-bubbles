@@ -28,14 +28,14 @@
   right: 15px;
   background: none;
   border: none;
-  font-size: 1.8rem;
-  color: #d6cece;
+  font-size: 1.6rem;
+  color: #a19c9c;
   cursor: pointer;
   transition: color 0.2s;
 }
 
 .close-btn:hover {
-  color: #b9acac;
+  color: #e0d5d5;
   font-weight: 600;
 }
 
@@ -102,7 +102,6 @@
 .search-results::-webkit-scrollbar-thumb:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
-
 
 .search-item {
   background: transparent;
