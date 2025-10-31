@@ -1,10 +1,16 @@
 import { ReactTyped } from "react-typed";
 import { IoMdSearch } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 function Header({ onSearchClick }) {
+  const navigate = useNavigate();
+
   return (
     <header className="header">
-      <div className="header-left">
+      <div 
+        className="header-left" 
+        onClick={() => navigate("/")} 
+      >
         <img src="/jway-col.png" alt="logo" className="logo" />
         <h1 className="company-name">
           J<span className="company-name-highlight">work</span>
@@ -24,14 +30,15 @@ function Header({ onSearchClick }) {
           />
         </h1>
       </div>
+
       <div className="search">
         <IoMdSearch
-            className="search-icon"
-            onClick={onSearchClick}
-            title="Search"
+          className="search-icon"
+          onClick={onSearchClick}
+          title="Search"
         />
-      </div>  
-    </header>       
+      </div>
+    </header>
   );
 }
 
