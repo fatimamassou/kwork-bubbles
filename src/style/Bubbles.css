@@ -63,6 +63,28 @@ body {
   left: 20px;
 }
 
+.header-right {
+  display: flex;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 70px;
+}
+
+.search-icon {
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.search-icon:hover {
+  color: rgb(204, 236, 236);
+  transform: scale(1.1);
+}
+
+
 .logo {
   width: 40px;
   height: 40px;
@@ -574,6 +596,5 @@ body {
     z-index: 1;
     cursor: pointer;
   }
-
 
 }
