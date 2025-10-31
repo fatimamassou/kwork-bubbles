@@ -1,5 +1,5 @@
 import { ReactTyped } from "react-typed";
-import { FaSearchengin } from "react-icons/fa";
+import { IoMdSearch } from "react-icons/io";
 
 function Header({ onSearchClick }) {
   return (
@@ -25,7 +25,7 @@ function Header({ onSearchClick }) {
         </h1>
       </div>
       <div className="search">
-        <FaSearchengin
+        <IoMdSearch
             className="search-icon"
             onClick={onSearchClick}
             title="Search"
