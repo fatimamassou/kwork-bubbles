@@ -1,0 +1,154 @@
+/* 🔲 Overlay background */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(25, 26, 27, 0.925);
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 100px;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.popup-box {
+    background: #202d38;
+    width: 90%;
+    max-width: 700px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px #000000b8;
+    position: relative;
+    animation: slideIn 0.3s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #d6cece;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #b9acac;
+  font-weight: 600;
+}
+
+.search-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-input-icon {
+  color: #c1d3df;
+  font-size: 18px;
+}
+
+.search-input {
+  width: 95%;
+  color: #dbe6f1;
+  font-size: 20px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 0px;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+  background-color: transparent;
+}
+
+.search-input::placeholder {
+  color: #c1d3df;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-results {
+  max-height: 250px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* Chrome, Edge, Safari */
+.search-results::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-results::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+.search-item {
+  background: transparent;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.search-item:hover {
+  background: #526a81;
+}
+
+.search-item span {
+  color: #dbe6f1;
+  font-size: 22px;
+}
+
+.search-item p {
+  color: #c6cbf8ee;
+  margin-block: 0px;
+  font-size: 20px;
+}
+
+.no-results {
+  text-align: center;
+  color: #dbe6f1;
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
