@@ -1,8 +1,7 @@
-/* 🔲 Overlay background */
 .popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(25, 26, 27, 0.925);
+  background: rgba(39, 39, 43, 0.938);
   display: flex;
   justify-content: center;
   align-items: start;
@@ -12,14 +11,15 @@
 }
 
 .popup-box {
-    background: #202d38;
-    width: 90%;
-    max-width: 700px;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px #000000b8;
-    position: relative;
-    animation: slideIn 0.3s ease;
+  background: #202d38;
+  margin-inline: 20px;
+  width: 90%;
+  max-width: 700px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px #000000b8;
+  position: relative;
+  animation: slideIn 0.3s ease;
 }
 
 .close-btn {
@@ -151,4 +151,3 @@
     transform: translateY(0);
   }
 }
-
