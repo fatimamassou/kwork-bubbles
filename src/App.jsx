@@ -3,13 +3,14 @@ import BubblesPage from "./components/Bubbles";
 import DetailsPage from "./components/Details";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import SearchPopup from "./components/SearchPopup"; // ✅
+import SearchPopup from "./components/SearchPopup"; 
 import { useState } from "react";
 import "./style/Bubbles.css";
-import "./style/SearchPopup.css"; // ✅ create this file below
+import "./style/SearchPopup.css"; 
 
 function App() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [query, setQuery] = useState("");
 
   return (
     <Router>
@@ -17,7 +18,12 @@ function App() {
         <Header onSearchClick={() => setIsSearchOpen(true)} />
         <SearchPopup
           isOpen={isSearchOpen}
-          onClose={() => setIsSearchOpen(false)}
+          query={query}         // Pass query
+          setQuery={setQuery}   // Pass setQuery
+          onClose={() => {
+            setIsSearchOpen(false);
+            setQuery("");              
+          }}
         />
 
         <Routes>
