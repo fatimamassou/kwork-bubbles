@@ -364,7 +364,7 @@
 /* Phones (≤548px) */
 @media (max-width: 548px) {
   .details-content {
-    padding: 75px 20px;
+    padding: 50px 20px;
     min-height: 100vh;
   }
  
