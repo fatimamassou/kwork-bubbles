@@ -1,15 +1,13 @@
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import cardData from "../data/cardData";
 import { RiCloseLine } from "react-icons/ri";
 import { TbDatabaseSearch } from "react-icons/tb";
 
-function SearchPopup({ isOpen, onClose }) {
-  const [query, setQuery] = useState("");
+function SearchPopup({ isOpen, onClose, query, setQuery }) {
   const navigate = useNavigate();
-  const inputRef = useRef(null); // 👈 ref for input
+  const inputRef = useRef(null); 
 
-  // 🧠 Focus input whenever popup opens
   useEffect(() => {
     if (isOpen && inputRef.current) {
       inputRef.current.focus();
@@ -26,6 +24,7 @@ function SearchPopup({ isOpen, onClose }) {
   );
 
   const handleSelect = (id) => {
+    setQuery("");  // clear input on selection
     onClose();
     navigate(`/details/${id}`);
   };
@@ -33,17 +32,23 @@ function SearchPopup({ isOpen, onClose }) {
   return (
     <div className="popup-overlay">
       <div className="popup-box">
-        <RiCloseLine className="close-btn" onClick={onClose} />
-
+        <RiCloseLine 
+          className="close-btn"
+          onClick={() => {
+            setQuery(""); 
+            onClose();
+          }} 
+        />
         <div className="search-block">
           <TbDatabaseSearch className="search-input-icon" />
           <input
-            ref={inputRef} // 👈 auto-focus input
+            ref={inputRef} 
             type="text"
             placeholder="Search a solution..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="search-input"
+            id="search-id"
           />
         </div>
 
