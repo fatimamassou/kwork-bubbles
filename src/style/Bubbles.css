@@ -63,6 +63,28 @@ body {
   left: 20px;
 }
 
+.header-right {
+  display: flex;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 70px;
+}
+
+.search-icon {
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.search-icon:hover {
+  color: rgb(204, 236, 236);
+  transform: scale(1.1);
+}
+
+
 .logo {
   width: 40px;
   height: 40px;
@@ -212,6 +234,10 @@ body {
     font-weight: 400;
   }
 
+  .search-icon {
+    font-size: 60px;
+  }
+
   .header {
     height: 180px;
   }
@@ -258,6 +284,10 @@ body {
     font-weight: 400;
   }
 
+  .search-icon {
+    font-size: 55px;
+  }
+
   .header {
     height: 120px;
   }
@@ -301,6 +331,10 @@ body {
   .company-name {
     font-size: 3.4rem;
     font-weight: 400;
+  }
+
+  .search-icon {
+    font-size: 30px;
   }
 
   .solutions {
@@ -451,12 +485,16 @@ body {
     padding: 6px;
   }
 
+ .search-icon {
+    font-size: 30px;
+  }
+
   .footer-content {
     gap: 4px;
   }
 
   .company-name {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -470,11 +508,14 @@ body {
     left: 8px;
   }
 
-  .header-right {
-    display: flex;
-    position: absolute;
-    right: 44px;
+ .search-icon {
+    font-size: 25px;
   }
+
+  .search {
+    right: 50px;
+  }
+
   .solutions {
     font-size: 1.5rem;
   }
@@ -526,11 +567,12 @@ body {
 /* Small phones (≤480px) */
 @media (max-width: 480px) {
   .company-name {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .solutions {
     display: block;
+    font-size: 1rem;
   }
 
   .bubble {
@@ -575,5 +617,8 @@ body {
     cursor: pointer;
   }
 
+  .search-icon {
+    font-size: 20px;
+  }
 
 }
