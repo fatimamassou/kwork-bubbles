@@ -1,137 +1,156 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "../style/Bubbles.css";
 import cardData from "../data/cardData";
-import { ReactTyped } from "react-typed";
 
-// Store positions globally so they never change on re-render
 let bubblePositions = [];
 
 function BubblesPage() {
   const stageRef = useRef(null);
 
-  useEffect(() => {
+  const getColsAndSizes = () => {
+    const width = window.innerWidth;
+    let cols, minSize, maxSize, fontSize;
+
+    if (width <= 340) {
+      cols = 4;
+      minSize = 10;
+      maxSize = 60;
+      fontSize = "0.7rem";
+    }else if (width <= 460) {
+      cols = 4;
+      minSize = 10;
+      maxSize = 65;
+      fontSize = "0.8rem";
+    }else if (width <= 480) {
+      cols = 6;
+      minSize = 10;
+      maxSize = 50;
+      fontSize = "0.6rem";
+    } else if (width <= 668) {
+      cols = 6;
+      minSize = 10;
+      maxSize = 70;
+      fontSize = "0.7rem";
+    } else if (width <= 768) {
+      cols = 6;
+      minSize = 35;
+      maxSize = 90;
+      fontSize = "0.9rem";
+    } else if (width <= 1279) {
+      cols = 6;
+      minSize = 60;
+      maxSize = 100;
+      fontSize = "1rem";
+    } else if (width <= 1380) {
+      cols = 6;
+      minSize = 100;
+      maxSize = 140;
+      fontSize = "1.4rem";
+    } else if (width <= 1580) {
+      cols = 6;
+      minSize = 140;
+      maxSize = 200;
+      fontSize = "1.6rem";
+    } else if (width <= 2180) {
+      cols = 6;
+      minSize = 160;
+      maxSize = 280;
+      fontSize = "1.6rem";
+    } else if (width <= 2899) {
+      cols = 6;
+      minSize = 280;
+      maxSize = 360;
+      fontSize = "2.5rem";
+    } else {
+      cols = 7;
+      minSize = 400;
+      maxSize = 480;
+      fontSize = "4.2rem";
+    }
+
+    return { cols, minSize, maxSize, fontSize };
+  };
+
+  const renderBubbles = () => {
     const stage = stageRef.current;
     if (!stage) return;
 
-    stage.innerHTML = ""; // clear previous bubbles
     const texts = cardData.map((card) => card.title);
-    const random = (min, max) => Math.random() * (max - min) + min;
-
-    // Check if a bubble collides with others
-    const collides = (x, y, size, others) => {
-      for (const o of others) {
-        const dx = x - o.x;
-        const dy = y - o.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < size / 2 + o.size / 2 + 20) return true; // 20px extra spacing
-      }
-      return false;
-    };
-
     const rect = stage.getBoundingClientRect();
+    const { cols, minSize, maxSize, fontSize } = getColsAndSizes();
     const width = rect.width;
     const height = rect.height;
+    const rows = Math.ceil(texts.length / cols);
+    const cellWidth = width / cols;
+    const cellHeight = height / rows;
 
-    // Only calculate positions once
-    if (bubblePositions.length === 0) {
-      const placed = [];
+    bubblePositions = []; // reset when resizing
 
-      texts.forEach((t) => {
-        const minSize = 70;
-        const maxSize = 160;
-        const size = Math.min(maxSize, Math.max(minSize, t.length * 8 + 40));
+    const placed = texts.map((t, i) => {
+      const col = i % cols;
+      const row = Math.floor(i / cols);
 
-        let x, y, tries = 0;
-        const maxTries = 5000;
+      const size = Math.min(maxSize, Math.max(minSize, t.length * 7 ));
 
-        do {
-          x = random(size / 2, width - size / 2);
-          y = random(size / 2, height - size / 2);
-          tries++;
-          if (tries > maxTries) {
-            console.warn("Could not place bubble without collision");
-            break;
-          }
-        } while (collides(x, y, size, placed));
+      let x = col * cellWidth + cellWidth / 2;
+      let y = row * cellHeight + cellHeight / 2;
 
-        placed.push({ x, y, size });
-      });
+      const jitterX = (Math.random() - 0.5) * cellWidth * 0.4;
+      const jitterY = (Math.random() - 0.5) * cellHeight * 0.4;
 
-      bubblePositions = placed; // save globally
-    }
+      x += jitterX;
+      y += jitterY;
 
-    // Create bubbles with floating animation
+      return { x, y, size };
+    });
+
+    bubblePositions = placed;
+
+    // clear previous bubbles
+    stage.innerHTML = "";
+
+    const bgList = [
+      "var(--bubble1)", "var(--bubble2)", "var(--bubble3)",
+      "var(--bubble4)", "var(--bubble5)", "var(--bubble6)",
+      "var(--bubble7)", "var(--bubble8)"
+    ];
+
     texts.forEach((t, i) => {
       const { x, y, size } = bubblePositions[i];
-
       const bubble = document.createElement("div");
       bubble.className = "bubble";
       bubble.textContent = t;
-      const bgList = [
-        "var(--bubble1)",
-        "var(--bubble2)",
-        "var(--bubble3)",
-        "var(--bubble4)",
-        "var(--bubble5)",
-        "var(--bubble6)",
-        "var(--bubble7)",
-        "var(--bubble8)"
-      ];
-      const randomBg = bgList[Math.floor(Math.random() * bgList.length)];
-      bubble.style.background = randomBg;
+
+      bubble.style.background = bgList[Math.floor(Math.random() * bgList.length)];
       bubble.style.width = `${size}px`;
       bubble.style.height = `${size}px`;
       bubble.style.left = `${x - size / 2}px`;
       bubble.style.top = `${y - size / 2}px`;
+      bubble.style.fontSize = fontSize;
 
-      // Floating animation
-      const dur = random(6, 12);
-      const delay = random(0, 3);
+      const dur = 6 + Math.random() * 4;
       bubble.style.animationDuration = `${dur}s`;
-      bubble.style.animationDelay = `${delay}s`;
+
+      bubble.addEventListener("click", () => {
+        window.location.href = `/details/${cardData[i].id}`;
+      });
 
       stage.appendChild(bubble);
     });
+  };
+
+  useEffect(() => {
+    renderBubbles();
+
+    const handleResize = () => {
+      renderBubbles();
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return (
-    <div className="bubbles-page">
-      <header className="header">
-        <div className="header-left">
-          <img src="/favicon.png" alt="logo" className="logo" />
-          <h1 className="company-name">JWORK</h1>
-        </div>
-        <div className="header-right">
-          <h1 className="solutions">
-            <ReactTyped
-              strings={["Nos Solutions", "Innovantes", "Adaptées à Vous"]}
-              typeSpeed={80}
-              backSpeed={50}
-              backDelay={1500}
-              showCursor={true}
-              cursorChar="|"
-              loop={true}
-            />
-          </h1>
-        </div>
-      </header>
-
-      <main className="bubbles-container" ref={stageRef}></main>
-
-      <footer className="footer">
-        <div className="footer-content">
-          <div className="contact-info">
-            <p>+212 (0) 662 098 864</p>
-            <span className="separator">|</span>
-            <p>+212 (0) 525 205 900</p>
-            <span className="separator">|</span>
-            <p>contact@jway.ma</p>
-          </div>
-          <p className="copyright">© 2025 JWORK — Tous droits réservés</p>
-        </div>
-      </footer>
-    </div>
-  );
+  return <main className="bubbles-container" ref={stageRef}></main>;
 }
 
 export default BubblesPage;
